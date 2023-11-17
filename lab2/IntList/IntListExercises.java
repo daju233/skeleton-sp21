@@ -90,6 +90,6 @@ public class IntListExercises {
         if(lst.rest==null) {
             return currElemIsPrime;
         }
-    return false;
+    return true;
     }
 }
