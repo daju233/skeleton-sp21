@@ -101,4 +101,4 @@ public class IntListExercises {
         return squarePrimes(lst.rest, isSquare);
     }
 }
-}
+
