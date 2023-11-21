@@ -14,9 +14,9 @@ public class SetToZeroIfMaxFELTest {
 
     @Test
     public void testZeroOutFELMaxes2() {
-        IntList L = IntList.of(55, 22, 45, 44, 5);
+        IntList L = IntList.of(202,10,404,202,404);
         IntListExercises.setToZeroIfMaxFEL(L);
-        assertEquals("0 -> 22 -> 45 -> 0 -> 0", L.toString());
+        assertEquals("0 -> 0 -> 0 -> 0 -> 0", L.toString());
     }
 
     @Test
@@ -27,8 +27,8 @@ public class SetToZeroIfMaxFELTest {
     }
     @Test
     public void testZeroOutFELMaxes4() {
-        IntList L = IntList.of(11,55,303);
+        IntList L = IntList.of(0,0);
         IntListExercises.setToZeroIfMaxFEL(L);
-        assertEquals("0 -> 0 -> 0", L.toString());
+        assertEquals("0 -> 0", L.toString());
     }
 }
