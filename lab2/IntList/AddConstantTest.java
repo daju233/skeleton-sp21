@@ -39,8 +39,8 @@ public class AddConstantTest {
     }
     @Test
     public void testAddConstantFive() {
-        IntList lst = IntList.of();
+        IntList lst = IntList.of(1);
         IntListExercises.addConstant(lst, -1);
-        assertEquals("-1", lst.toString());
+        assertEquals("0", lst.toString());
     }
 }
