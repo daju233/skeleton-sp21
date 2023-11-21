@@ -33,11 +33,14 @@ public class IntListExercises {
      */
     public static void setToZeroIfMaxFEL(IntList L) {
         IntList p = L;
-        while (p != null) {
-            if (firstDigitEqualsLastDigit(max(p))) {
-                p.first = 0;
-            }
-            p = p.rest;
+        int currentMax = max(p);
+        boolean firstEqualsLast = firstDigitEqualsLastDigit(currentMax);
+        if (firstEqualsLast) {
+            p.first = 0;
+        }
+        if(p.rest!=null)
+        {
+            setToZeroIfMaxFEL(p.rest);
         }
     }
 
@@ -59,11 +62,11 @@ public class IntListExercises {
      */
     public static boolean firstDigitEqualsLastDigit(int x) {
         int lastDigit = x % 10;
-        while (x > 10) {
+        while (x >= 10) {
             x = x / 10;
         }
         int firstDigit = x % 10;
-        if(lastDigit==0&&firstDigit==0)
+        if(firstDigit==0)
         {
             return firstDigit!=lastDigit;
         }
@@ -78,22 +81,24 @@ public class IntListExercises {
      * @return True if there was an update to the list
      */
     public static boolean squarePrimes(IntList lst) {
+        return squarePrimes(lst, false);
+    }
+
+    // I wrapped(using helper func) it, then I could only pass a param of lst
+    private static boolean squarePrimes(IntList lst, boolean isSquare) {
         // Base Case: we have reached the end of the list
         if (lst == null) {
-            return false;
+            return isSquare;
         }
 
         boolean currElemIsPrime = Primes.isPrime(lst.first);
 
         if (currElemIsPrime) {
             lst.first *= lst.first;
+            isSquare = true;
         }
 
-        squarePrimes(lst.rest);
-
-        if(lst.rest==null) {
-            return currElemIsPrime;
-        }
-    return true;
+        return squarePrimes(lst.rest, isSquare);
     }
+}
 }
